@@ -607,8 +607,13 @@ def test_guarded_makedirs_refuses_paths_outside_tmp_path(monkeypatch, tmp_path):
     """The guard used by this suite actually blocks escapes."""
     _install_guarded_makedirs(monkeypatch, tmp_path)
 
+    # The escape target has to be absolute on every platform, so it is
+    # derived from tmp_path's parent rather than hard-coded as "C:/..." —
+    # a "C:/..." path is *relative* on POSIX and would be joined onto the
+    # tmp root instead of escaping it.
+    outside = tmp_path.parent / "escaped-outside-tmp-path"
     with pytest.raises(AssertionError):
-        os.makedirs("C:/definitely/not/in/tmp_path")
+        os.makedirs(outside)
 
     inside = tmp_path / "ok"
     os.makedirs(inside)
