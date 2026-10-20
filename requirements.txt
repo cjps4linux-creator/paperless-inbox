@@ -1,1 +1,4 @@
+# Paperless Inbox — runtime dependencies
+flask>=2.3,<3.0
 watchdog>=4.0.0
+requests>=2.31

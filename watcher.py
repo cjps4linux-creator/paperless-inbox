@@ -1,8 +1,6 @@
 import os
-import sys
 import time
 import shutil
-import subprocess
 from datetime import datetime
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
