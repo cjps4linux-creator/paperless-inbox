@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 import sys
 import glob
 import subprocess
@@ -6,7 +7,10 @@ from datetime import datetime
 
 WATCH_DIR = os.path.expandvars(r'%USERPROFILE%\Downloads\paperless-inbox')
 OUT_DIR = os.path.expandvars(r'%USERPROFILE%\Documents\Paperless')
-PDFCRAFT_CLI = r'C:\Users\user\Projects\pdfcraft\target\release\pdfcraft-cli.exe'
+# Path to the pdfcraft CLI used for merging. Override with PDFCRAFT_CLI.
+# Default assumes pdfcraft is cloned as a sibling of this repository.
+_PDFCRAFT_DEFAULT = Path(__file__).resolve().parent.parent / "pdfcraft" / "target" / "release" / "pdfcraft-cli.exe"
+PDFCRAFT_CLI = os.environ.get("PDFCRAFT_CLI", str(_PDFCRAFT_DEFAULT))
 
 os.makedirs(OUT_DIR, exist_ok=True)
 
@@ -50,5 +54,7 @@ try:
         sys.exit(0)
     else:
         print('combine failed:', r.stderr)
+        sys.exit(1)
 except Exception as e:
     print('err:', e)
+    sys.exit(1)

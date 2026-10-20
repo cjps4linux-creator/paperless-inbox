@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 import glob
 import subprocess
 import tkinter as tk
@@ -6,7 +7,10 @@ from tkinter import ttk, filedialog, messagebox
 from datetime import datetime
 
 OUT_DIR = os.path.expandvars(r'%USERPROFILE%\Documents\Paperless')
-PDFCRAFT_CLI = r'C:\Users\user\Projects\pdfcraft\target\release\pdfcraft-cli.exe'
+# Path to the pdfcraft CLI used for merging. Override with PDFCRAFT_CLI.
+# Default assumes pdfcraft is cloned as a sibling of this repository.
+_PDFCRAFT_DEFAULT = Path(__file__).resolve().parent.parent / "pdfcraft" / "target" / "release" / "pdfcraft-cli.exe"
+PDFCRAFT_CLI = os.environ.get("PDFCRAFT_CLI", str(_PDFCRAFT_DEFAULT))
 os.makedirs(OUT_DIR, exist_ok=True)
 
 class App:
