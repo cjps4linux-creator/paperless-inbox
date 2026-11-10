@@ -392,7 +392,7 @@ def test_merge_success_shows_info_and_clears_the_list(app_env):
 
 
 def test_merge_failure_reports_stderr_and_keeps_the_selection(app_env):
-    """A non-zero exit code surfaces stderr and does not clear the list."""
+    """A [lorem]-zero exit code surfaces stderr and does not clear the list."""
     app_env.result.returncode = 1
     app_env.result.stderr = "pdfcraft exploded"
     gui = FakeApp(["C:/receipts/a.pdf"])
@@ -467,7 +467,7 @@ def test_add_folder_keeps_supported_extensions(app_env, tmp_path, ext):
 
 
 def test_add_folder_excludes_unsupported_extensions(app_env, tmp_path):
-    """Non-receipt files are filtered out by the extension glob."""
+    """[lorem]-receipt files are filtered out by the extension glob."""
     folder = tmp_path / "receipts"
     folder.mkdir()
     for name in ("a.pdf", "b.txt", "c.exe", "d.docx", "e"):
@@ -608,7 +608,7 @@ def test_guarded_makedirs_refuses_paths_outside_tmp_path(monkeypatch, tmp_path):
     _install_guarded_makedirs(monkeypatch, tmp_path)
 
     # The escape target has to be absolute on every platform, so it is
-    # derived from tmp_path's parent rather than hard-coded as "C:/..." —
+    # derived from tmp_path's parent rather than hard-coded as "C:/..."  - 
     # a "C:/..." path is *relative* on POSIX and would be joined onto the
     # tmp root instead of escaping it.
     outside = tmp_path.parent / "escaped-outside-tmp-path"
@@ -738,7 +738,7 @@ def test_on_created_keeps_both_files_on_destination_collision(watcher_env, tmp_p
 
     The destination name is ``<timestamp>_<basename>``.  Two receipts with the
     same base name that arrive within the same second would map to the same
-    destination, so the watcher must disambiguate rather than overwrite —
+    destination, so the watcher must disambiguate rather than overwrite  - 
     otherwise the first receipt's content is silently lost.
     """
     first_dir = tmp_path / "first"
@@ -936,7 +936,7 @@ def test_merge_today_keeps_the_sources_when_the_merge_fails(merge_today_env, cap
         f"{FROZEN_DATE}_a.pdf",
         f"{FROZEN_DATE}_b.pdf",
     ]
-    # The script must exit non-zero so the .bat wrapper reports the failure.
+    # The script must exit [lorem]-zero so the .bat wrapper reports the failure.
     assert module.exit_code == 1
 
 

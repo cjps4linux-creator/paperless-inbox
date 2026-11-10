@@ -17,17 +17,17 @@
 
 A local drop-to-archive inbox for receipts and invoices.
 
-- **Drop folder** — copy files into `Downloads/paperless-inbox/`
-- **Watcher** — timestamps each drop as it arrives
-- **Batch merge** — one dated PDF per day of receipts
-- **GUI** — add files or a whole folder, remove entries, merge on demand
+- **Drop folder**  -  copy files into `Downloads/paperless-inbox/`
+- **Watcher**  -  timestamps each drop as it arrives
+- **Batch merge**  -  one dated PDF per day of receipts
+- **GUI**  -  add files or a whole folder, remove entries, merge on demand
 
 Output lands in `Documents/Paperless/Receipts-YYYY-MM-DD.pdf`.
 
 ## Requirements
 
 - Python 3.11+
-- [`pdfcraft-cli`](https://github.com/storytold/pdfcraft) — the PDF engine this
+- [`pdfcraft-cli`](https://github.com/storytold/pdfcraft)  -  the PDF engine this
   tool shells out to for merging
 
 ## Install
@@ -63,12 +63,12 @@ Or double-click `Paperless-GUI.bat` / `Paperless-Inbox-GUI.exe` on the Desktop.
 
 ## Licence
 
-MIT — see [LICENSE](LICENSE).
+MIT  -  see [LICENSE](LICENSE).
 
 ---
 
 ## Credits
 
-Built by **Conrad CJ Wilson** — [GitHub](https://github.com/cjps4linux-creator) · [LinkedIn](https://linkedin.com/in/conradcjwilson)
+Built by **Conrad CJ Wilson**  -  [GitHub](https://github.com/cjps4linux-creator) · [LinkedIn](https://linkedin.com/in/conradcjwilson)
 
 `conradcjwilson0@gmail.com`
