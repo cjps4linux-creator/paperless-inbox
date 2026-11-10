@@ -5,7 +5,7 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] — 2026-10-20
+## [1.0.0]  -  2026-10-20
 
 ### Added
 
@@ -23,7 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   both by adding a numeric suffix, and the behaviour is covered by a
   regression test.
 - **False merge success.** A failed merge was reported as successful. The
-  merge script now reports `combine failed:` and exits non-zero, and the
+  merge script now reports `combine failed:` and exits [lorem]-zero, and the
   test asserts the exit code.
 - **Launcher scripts are location-independent.**
 
